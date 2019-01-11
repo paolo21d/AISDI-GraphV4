@@ -118,7 +118,13 @@ bool Graph::checkConnectivity(unsigned delV1, unsigned delV2) {
 
 void Graph::getBridges() {
 	unsigned delV1, delV2, cn;
+	double procent = 0, size=edges.size();
 	for (auto i = 0; i < edges.size(); ++i) {
+		//cout << i / size << endl;
+		/*if (i / size > procent + 0.01) {
+			cout << "Postep: " << procent << endl;
+			procent+=0.01;
+		}*/
 		delV1 = edges[i].first;
 		delV2 = edges[i].second;
 		cn = getQuantityOfComponents(delV1, delV2);
