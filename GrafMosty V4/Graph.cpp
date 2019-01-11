@@ -21,11 +21,13 @@ Graph::Graph() {
 Graph::~Graph() {
 	if (adjList != nullptr)
 		delete[] adjList;
+	delete[] visited;
 }
 
 void Graph::inputGraph() {
 	cin >> vertex >> edge;
 	adjList = new list<unsigned>[vertex]; //zaalokowanie pamięci na listę sąsiedztwa
+	visited = new bool[vertex];
 	unsigned v1, v2;
 	for (unsigned i = 0; i < edge; ++i) { //wczytanie krawedzi do list sasiedztwa
 		cin >> v1 >> v2;
@@ -47,6 +49,7 @@ bool Graph::inputGraphFromFile(string src) {
 
 	file >> vertex;
 	adjList = new list<unsigned>[vertex]; //zaalokowanie pamięci na listę sąsiedztwa
+	visited = new bool[vertex];
 	unsigned v1, v2;
 	while (file.good()) {
 		file >> v1 >> v2;
@@ -68,6 +71,7 @@ bool Graph::inputGraphFromFile(string src) {
 void Graph::inputGraphLab() {
 	cin >> vertex;
 	adjList = new list<unsigned>[vertex]; //zaalokowanie pamięci na listę sąsiedztwa
+	visited = new bool[vertex];
 	unsigned v1, v2;
 	unsigned e = 0;
 	while (!cin.eof()) {
@@ -122,12 +126,12 @@ void Graph::getBridges() {
 
 int Graph::getQuantityOfComponents(unsigned delV1, unsigned delV2) {
 	int cn = 0; // Zerujemy licznik spójnych składowych
-	static unsigned v, u;
+	unsigned v, u;
 	//static vector<bool> visited(vertex);
-	static vector<bool> visited;
+	//vector<bool> visited;
 	stack<unsigned> S;
-	for (unsigned i = 0; i < vertex; ++i) visited.push_back(false); //zerowanie listy odwiedzonych wierzcholkow
-	//for (auto i = 0; i < vertex; ++i) visited[i] = false;
+	//for (unsigned i = 0; i < vertex; ++i) visited.push_back(false); //zerowanie listy odwiedzonych wierzcholkow
+	for (auto i = 0; i < vertex; ++i) visited[i] = false;
 	visited[delV1] = true;
 	visited[delV2] = true;
 
@@ -135,7 +139,7 @@ int Graph::getQuantityOfComponents(unsigned delV1, unsigned delV2) {
 		if (!visited[i])                // Szukamy nieodwiedzonego jeszcze wierzchołka
 		{
 			cn++;                  // Zwiększamy licznik składowych
-			if (cn > 1) return cn;
+			//if (cn > 1) return cn;
 			S.push(i);             // Na stosie umieszczamy numer bieżącego wierzchołka
 			visited[i] = true;             // i oznaczamy go jako odwiedzonego i ponumerowanego
 			while (!S.empty())      // Przechodzimy graf algorytmem DFS

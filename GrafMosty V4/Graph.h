@@ -12,7 +12,7 @@ class Graph
 				   //std::vector<unsigned> *adjList; //lista s¹siedztwa
 	std::list<unsigned> *adjList;
 	std::vector<std::pair<unsigned, unsigned>> edges;
-
+	bool *visited;
 	//unsigned removeElement;
 	//bool delFunc(const unsigned &d);
 public:
