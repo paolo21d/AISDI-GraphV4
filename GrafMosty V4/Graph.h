@@ -4,6 +4,7 @@
 #include <vector>
 #include <list>
 #include <utility>
+#include <string>
 class Graph
 {
 	unsigned vertex; //ilosc wierzcholkow
