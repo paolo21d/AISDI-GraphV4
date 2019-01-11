@@ -8,8 +8,6 @@ int main() {
 	g.inputGraphFromFile("graf1.txt");
 	//g.inputGraphLab();
 	g.printGraph();
-	//cout << "Spojnosc: " << g.checkConnectivity();
-	//cout << "Ilosc skladowych: " << g.getQuantityOfComponents() << endl;
 	clock_t begin = clock();
 	g.getBridges();
 	clock_t end = clock();

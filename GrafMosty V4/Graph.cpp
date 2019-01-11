@@ -18,7 +18,6 @@ Graph::Graph() {
 	adjList = nullptr;
 }
 
-
 Graph::~Graph() {
 	if (adjList != nullptr)
 		delete[] adjList;
@@ -68,7 +67,7 @@ bool Graph::inputGraphFromFile(string src) {
 
 void Graph::inputGraphLab() {
 	cin >> vertex;
-	adjList = new list<unsigned>[vertex]; //zaalokowanie pami�ci na list� s�siedztwa
+	adjList = new list<unsigned>[vertex]; //zaalokowanie pamięci na listę sąsiedztwa
 	unsigned v1, v2;
 	unsigned e = 0;
 	while (!cin.eof()) {
@@ -122,11 +121,12 @@ void Graph::getBridges() {
 }
 
 int Graph::getQuantityOfComponents(unsigned delV1, unsigned delV2) {
-	int cn = 0;                    // Zerujemy licznik spójnych składowych
-	unsigned v, u;
-	vector<bool> visited;
+	int cn = 0; // Zerujemy licznik spójnych składowych
+	static unsigned v, u;
+	static vector<bool> visited(vertex);
 	stack<unsigned> S;
-	for (unsigned i = 0; i < vertex; ++i) visited.push_back(false); //zerowanie listy odwiedzonych wierzcholkow
+	//for (unsigned i = 0; i < vertex; ++i) visited.push_back(false); //zerowanie listy odwiedzonych wierzcholkow
+	for (auto i = 0; i < vertex; ++i) visited[i] = false;
 	visited[delV1] = true;
 	visited[delV2] = true;
 

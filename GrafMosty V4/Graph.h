@@ -21,9 +21,9 @@ public:
 	void inputGraph(); //wczytanie grafu z konsoli
 	bool inputGraphFromFile(std::string src); //wczytanie grafu z pliku (plik nie moze byc zakonczony enterem)
 	void inputGraphLab(); //wczytywanie grafu na labie
-	bool checkConnectivity(unsigned delV1, unsigned delV2);
+	bool checkConnectivity(unsigned delV1, unsigned delV2); // psrawdza spójnoœæ grafu
 	void getBridges(); //wypisanie mostow rozleglych grafu
-	int getQuantityOfComponents(unsigned delV1, unsigned delV2);
+	int getQuantityOfComponents(unsigned delV1, unsigned delV2); //zwraca iloœæ sk³adowych grafu
 	void printGraph();
 };
 
