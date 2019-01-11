@@ -26,7 +26,8 @@ Graph::~Graph() {
 
 void Graph::inputGraph() {
 	cin >> vertex >> edge;
-	adjList = new list<unsigned>[vertex]; //zaalokowanie pamięci na listę sąsiedztwa
+	//adjList = new list<unsigned>[vertex]; //zaalokowanie pamięci na listę sąsiedztwa
+	adjList = new vector<unsigned>[vertex];
 	visited = new bool[vertex];
 	unsigned v1, v2;
 	for (unsigned i = 0; i < edge; ++i) { //wczytanie krawedzi do list sasiedztwa
@@ -48,7 +49,8 @@ bool Graph::inputGraphFromFile(string src) {
 		return false;
 
 	file >> vertex;
-	adjList = new list<unsigned>[vertex]; //zaalokowanie pamięci na listę sąsiedztwa
+	//adjList = new list<unsigned>[vertex]; //zaalokowanie pamięci na listę sąsiedztwa
+	adjList = new vector<unsigned>[vertex];
 	visited = new bool[vertex];
 	unsigned v1, v2;
 	while (file.good()) {
@@ -70,7 +72,8 @@ bool Graph::inputGraphFromFile(string src) {
 
 void Graph::inputGraphLab() {
 	cin >> vertex;
-	adjList = new list<unsigned>[vertex]; //zaalokowanie pamięci na listę sąsiedztwa
+	//adjList = new list<unsigned>[vertex]; //zaalokowanie pamięci na listę sąsiedztwa
+	adjList = new vector<unsigned>[vertex];
 	visited = new bool[vertex];
 	unsigned v1, v2;
 	unsigned e = 0;

@@ -10,7 +10,8 @@ class Graph
 	unsigned vertex; //ilosc wierzcholkow
 	unsigned edge; //ilosc krawedzi
 				   //std::vector<unsigned> *adjList; //lista s¹siedztwa
-	std::list<unsigned> *adjList;
+	//std::list<unsigned> *adjList;
+	std::vector <unsigned> *adjList;
 	std::vector<std::pair<unsigned, unsigned>> edges;
 	bool *visited;
 	//unsigned removeElement;
