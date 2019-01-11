@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <list>
+#include <stack>
 #include <utility>
 #include <string>
 class Graph
@@ -14,6 +15,7 @@ class Graph
 	std::vector <unsigned> *adjList;
 	std::vector<std::pair<unsigned, unsigned>> edges;
 	bool *visited;
+	//std::stack<unsigned> S;
 	//unsigned removeElement;
 	//bool delFunc(const unsigned &d);
 public:
